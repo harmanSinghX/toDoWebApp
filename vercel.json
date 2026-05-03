@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build"
+  "installCommand": "npm install",
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "functions": {
+    "src/pages/api/**/*.js": {
+      "runtime": "nodejs18.x"
     }
-  ],
+  },
   "routes": [
     {
       "src": "/(.*)",
@@ -13,7 +15,7 @@
     }
   ],
   "env": {
-    "REACT_APP_API_URL": "https://todowebapp-backend.up.railway.app/api",
+    "REACT_APP_API_URL": "https://todowebapp-backend-production-7014.up.railway.app/api",
     "REACT_APP_SUPABASE_URL": "https://wygqdpebsifopqwazmwc.supabase.co",
     "REACT_APP_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind5Z3FkcGVic2lmb3Bxd2F6bXdjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc2OTA0NDAsImV4cCI6MjA5MzI2NjQ0MH0.kbouNGcwKbKRdGB2dj5DxPyNDn39GevVQlck2tslhec"
   }
