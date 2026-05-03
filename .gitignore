@@ -60,3 +60,13 @@ jspm_packages/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Backend files (not needed for frontend-only repo)
+backend/
+database/
+docs/
+deploy.sh
+test-deployment.sh
+.env.example
+DEPLOYMENT.md
+README.md
