@@ -3,15 +3,9 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
+      "use": "@vercel/static-build"
     }
   ],
-  "installCommand": "npm ci",
-  "buildCommand": "npm run build",
-  "outputDirectory": "build",
   "routes": [
     {
       "src": "/(.*)",
