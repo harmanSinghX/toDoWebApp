@@ -15,23 +15,12 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  console.log('AuthProvider initializing');
-
   useEffect(() => {
-    console.log('useAuth useEffect running');
     // Get initial session
     const getInitialSession = async () => {
-      try {
-        console.log('Getting initial session...');
-        const { data: { session } } = await supabase.auth.getSession();
-        console.log('Initial session result:', session);
-        setUser(session?.user ?? null);
-        setLoading(false);
-        console.log('Loading set to false');
-      } catch (error) {
-        console.error('Error getting initial session:', error);
-        setLoading(false);
-      }
+      const { data: { session } } = await supabase.auth.getSession();
+      setUser(session?.user ?? null);
+      setLoading(false);
     };
 
     getInitialSession();
@@ -39,7 +28,6 @@ export const AuthProvider = ({ children }) => {
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
-        console.log('Auth state change:', event, session);
         setUser(session?.user ?? null);
         setLoading(false);
       }
