@@ -8,7 +8,10 @@ import './styles/App.css';
 function AppContent() {
   const { user, loading } = useAuth();
 
+  console.log('AppContent render:', { user, loading });
+
   if (loading) {
+    console.log('Showing loading screen');
     return (
       <div className="loading-container">
         <div className="loading-spinner"></div>
@@ -16,6 +19,8 @@ function AppContent() {
       </div>
     );
   }
+
+  console.log('Rendering routes');
 
   return (
     <div className="App">
@@ -38,6 +43,7 @@ function AppContent() {
 }
 
 function App() {
+  console.log('App component rendering');
   return (
     <AuthProvider>
       <AppContent />
